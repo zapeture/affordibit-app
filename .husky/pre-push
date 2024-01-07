@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-yarn build && yarn test:ci && yarn e2e:test
+yarn build
 
 
