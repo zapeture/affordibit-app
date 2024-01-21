@@ -1,6 +1,7 @@
 {
   "name": "affordibit-app",
   "version": "0.0.0",
+  "private": true,
   "scripts": {
     "dev:spotlight": "spotlight-sidecar",
     "dev:next": "next dev",
