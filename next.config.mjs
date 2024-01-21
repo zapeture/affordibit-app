@@ -25,9 +25,12 @@ export default withSentryConfig(
       },
       poweredByHeader: false,
       reactStrictMode: true,
+      serverExternalPackages: ['pino'],
       experimental: {
         // Related to Pino error with RSC: https://github.com/orgs/vercel/discussions/3150
-        serverComponentsExternalPackages: ['pino'],
+        reactCompiler: {
+          compilationMode: 'annotation',
+        },
       },
     }),
   ),
