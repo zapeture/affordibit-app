@@ -50,7 +50,7 @@ export default function RootLayout(props: {
 
   return (
     <html lang={props.params.locale} className={inter.className}>
-      <body>
+      <body suppressHydrationWarning>
         <NextIntlClientProvider
           locale={props.params.locale}
           messages={messages}
