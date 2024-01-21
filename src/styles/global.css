@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+/* Carousels */
+.auth-carousel .swiper-pagination-horizontal{
+  bottom: 0px !important;
+}
+
+.auth-carousel .swiper-pagination-bullet-active{
+  background-color: #fff;
+  width: 10px;
+  height: 10px;
+}
+
+
+/* Clerk */
+.cl-formButtonPrimary{
+  box-shadow: none !important;
+}

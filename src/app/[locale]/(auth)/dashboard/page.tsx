@@ -1,3 +1,4 @@
+import { SignOutButton } from "@clerk/nextjs";
 import { getTranslations } from "next-intl/server";
 
 export async function generateMetadata(props: { params: { locale: string } }) {
@@ -11,6 +12,10 @@ export async function generateMetadata(props: { params: { locale: string } }) {
   };
 }
 
-const Dashboard = () => <div className="[&_p]:my-6" />;
+const Dashboard = () => (
+  <div className="[&_p]:my-6">
+    <SignOutButton redirectUrl="/sign-in">SignOut</SignOutButton>
+  </div>
+);
 
 export default Dashboard;

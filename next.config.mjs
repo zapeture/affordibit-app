@@ -32,6 +32,14 @@ export default withSentryConfig(
           compilationMode: "annotation",
         },
       },
+      images: {
+        remotePatterns: [
+          {
+            protocol: "https",
+            hostname: "via.placeholder.com",
+          },
+        ],
+      },
     }),
   ),
   {

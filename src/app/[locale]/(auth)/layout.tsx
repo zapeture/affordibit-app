@@ -1,5 +1,8 @@
 import { enUS, frFR } from "@clerk/localizations";
-import { ClerkProvider } from "@clerk/nextjs";
+import { ClerkLoaded, ClerkLoading, ClerkProvider } from "@clerk/nextjs";
+
+import AuthLoader from "@/components/loaders/AuthLoader";
+import { authAppearance } from "@/utils/ClerkAppearance";
 
 export default function AuthLayout(props: {
   children: React.ReactNode;
@@ -27,8 +30,12 @@ export default function AuthLayout(props: {
       signUpUrl={signUpUrl}
       signInFallbackRedirectUrl={dashboardUrl}
       signUpFallbackRedirectUrl={dashboardUrl}
+      appearance={authAppearance}
     >
-      {props.children}
+      <ClerkLoading>
+        <AuthLoader />
+      </ClerkLoading>
+      <ClerkLoaded>{props.children}</ClerkLoaded>
     </ClerkProvider>
   );
 }

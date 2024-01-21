@@ -31,5 +31,8 @@
   "i18n-ally.keystyle": "nested",
   "[dockercompose]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[tailwindcss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   }
 }
