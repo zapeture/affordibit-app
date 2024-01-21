@@ -44,3 +44,10 @@ next-env.d.ts
 
 # swc
 .swc
+
+# playwright
+/test-results/
+/tests-examples/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
