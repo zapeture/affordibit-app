@@ -1,10 +1,9 @@
 import { CONFIG } from '@/config'
 import { test, expect } from '@playwright/test'
 
-test('has Next.js logo', async ({ page }) => {
-  await page.goto(`${CONFIG.default.APP_URL.CLIENT.FULL_URL}`)
+test('has text Hello World', async ({ page }) => {
+  await page.goto(`http://localhost:5555`)
 
-  const image = await page.$('img')
-  expect(image).toBeTruthy()
-  expect(await image?.getAttribute('alt')).toBe('Vercel Logo')
+  const title = await page.innerText('h1')
+  expect(title).toBe('Hello World')
 })
