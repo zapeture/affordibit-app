@@ -8,4 +8,6 @@ load_env() {
     fi
 }
 
-load_env ".env*"
+load_env ".env.local"
+load_env ".env.test"
+load_env ".env"

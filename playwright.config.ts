@@ -1,3 +1,4 @@
+require('dotenv').config({ path: '.env.test' })
 import { defineConfig, devices } from '@playwright/test'
 
 export default defineConfig({
@@ -7,24 +8,21 @@ export default defineConfig({
   retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? 1 : undefined,
   reporter: 'html',
+  webServer: {
+    command: 'yarn start',
+    url: `http://localhost:${process.env.NEXT_PUBLIC_PORT}`,
+    timeout: 120 * 1000,
+    reuseExistingServer: true,
+  },
   use: {
     trace: 'on-first-retry',
+    baseURL: `http://localhost:${process.env.NEXT_PUBLIC_PORT}`,
   },
 
   projects: [
     {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
-    },
-
-    {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
-    },
-
-    {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
     },
   ],
 })

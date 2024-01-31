@@ -14,11 +14,13 @@
     "test:ci": "jest --ci",
     "prepare": "husky install",
     "e2e:test": "playwright test",
-    "e2e:ci": "playwright test --headed=false",
+    "e2e:ui": "playwright test --ui",
     "e2e:debug": "playwright test --headed",
-    "e2e:show-report": "playwright show-report"
+    "e2e:show-report": "playwright show-report",
+    "e2e:pre-flight": "act"
   },
   "dependencies": {
+    "dotenv": "^16.4.1",
     "next": "^14.0.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
