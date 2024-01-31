@@ -33,6 +33,8 @@ jobs:
           cache: 'yarn'
       - name: Install dependencies
         run: yarn install
+      - name: Build App
+        run: yarn build
       - name: Run Jest tests
         run: yarn test:ci
 
@@ -48,6 +50,8 @@ jobs:
           cache: 'yarn'
       - name: Install dependencies
         run: yarn install
+      - name: Build App
+        run: yarn build
       - name: Install Playwright Browsers
         run: yarn playwright install --with-deps
       - name: Run Playwright tests
