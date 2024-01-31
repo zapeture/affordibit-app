@@ -1,5 +1,5 @@
 import { add } from './add'
 
-test('Test functions that import server-only', () => {
+test('add function correctly adds two numbers', () => {
   expect(add(1, 2)).toBe(3)
 })
