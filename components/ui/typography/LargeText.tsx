@@ -1,5 +1,15 @@
-import { ReactNode } from "react"
+import React, { ReactNode, HTMLAttributes } from "react"
 
-export default function LargeText({ children }: { children: ReactNode }) {
-  return <div className="text-lg font-semibold">{children}</div>
+interface LargeTextProps extends HTMLAttributes<HTMLDivElement> {
+  children: ReactNode
 }
+
+const LargeText: React.FC<LargeTextProps> = ({ children, ...props }) => {
+  return (
+    <div className="text-lg font-semibold" {...props}>
+      {children}
+    </div>
+  )
+}
+
+export default LargeText
