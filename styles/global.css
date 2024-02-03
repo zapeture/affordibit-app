@@ -85,7 +85,7 @@
     --input: var(--primary-200);
     --ring: var(--primary-600);
 
-    --radius: 0.5rem;
+    --radius: 0.8rem;
   }
 
   .dark {
