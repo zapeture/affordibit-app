@@ -9,10 +9,11 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   reporter: "html",
   webServer: {
-    command: "yarn start",
+    command: `yarn build && next start -p ${process.env.NEXT_PUBLIC_PORT}`,
     url: `http://localhost:${process.env.NEXT_PUBLIC_PORT}`,
+    ignoreHTTPSErrors: true,
     timeout: 120 * 1000,
-    reuseExistingServer: true,
+    reuseExistingServer: !process.env.CI,
   },
   use: {
     trace: "on-first-retry",
