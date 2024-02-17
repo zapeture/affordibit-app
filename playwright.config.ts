@@ -13,17 +13,17 @@ export default defineConfig({
     url: `http://localhost:${process.env.NEXT_PUBLIC_PORT}`,
     ignoreHTTPSErrors: true,
     timeout: 120 * 1000,
-    reuseExistingServer: !process.env.CI,
+    reuseExistingServer: !process.env.CI
   },
   use: {
     trace: "on-first-retry",
-    baseURL: `http://localhost:${process.env.NEXT_PUBLIC_PORT}`,
+    baseURL: `http://localhost:${process.env.NEXT_PUBLIC_PORT}`
   },
 
   projects: [
     {
       name: "chromium",
-      use: { ...devices["Desktop Chrome"] },
-    },
-  ],
+      use: { ...devices["Desktop Chrome"] }
+    }
+  ]
 })

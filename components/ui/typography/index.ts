@@ -20,5 +20,5 @@ export {
   Mutedtext,
   Paragraph,
   SmallText,
-  Blockquote,
+  Blockquote
 }

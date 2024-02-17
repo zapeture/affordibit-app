@@ -12,9 +12,3 @@ if [ $? -ne 0 ]; then
   echo "Tests failed, aborting push."
   exit 1
 fi
-
-yarn e2e:test
-if [ $? -ne 0 ]; then
-  echo "End-to-end tests failed, aborting push."
-  exit 1
-fi

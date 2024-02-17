@@ -6,15 +6,15 @@ const paragraphStyles = cva([], {
       xlarge: "text-xl font-normal",
       large: "text-lg font-normal",
       medium: "text-base font-normal",
-      small: "text-sm font-normal",
+      small: "text-sm font-normal"
     },
     weight: {
       bold: "font-bold",
       semibold: "font-semibold",
       medium: "font-medium",
-      normal: "font-normal",
-    },
-  },
+      normal: "font-normal"
+    }
+  }
 })
 
 export interface ParagraphProps
