@@ -2,6 +2,7 @@
   "name": "affordibit-app",
   "version": "0.0.0",
   "private": true,
+  "license": "MIT",
   "scripts": {
     "dev": "./scripts/start_dev.sh",
     "build": "next build",
