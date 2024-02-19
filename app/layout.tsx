@@ -1,3 +1,5 @@
+import Script from 'next/script'
+
 export default function RootLayout({
   children,
 }: {
@@ -6,6 +8,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>{children}</body>
+      <Script src="https://cdn.tailwindcss.com" />
     </html>
   )
 }
