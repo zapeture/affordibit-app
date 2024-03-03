@@ -1,5 +1,3 @@
 export default function Page() {
-  return (
-    <div>page</div>
-  )
+  return <h1>App Router</h1>
 }

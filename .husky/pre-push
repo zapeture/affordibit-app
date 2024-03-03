@@ -2,5 +2,13 @@
 . "$(dirname -- "$0")/_/husky.sh"
 
 yarn build
+if [ $? -ne 0 ]; then
+  echo "Build failed, aborting push."
+  exit 1
+fi
 
-
+yarn test
+if [ $? -ne 0 ]; then
+  echo "Tests failed, aborting push."
+  exit 1
+fi
