@@ -20,7 +20,8 @@
     "e2e:show-report": "playwright show-report",
     "e2e:pre-flight": "act",
     "migrate:dev": "prisma migrate dev",
-    "migrate:deploy": "prisma migrate deploy"
+    "migrate:deploy": "prisma migrate deploy",
+    "studio": "prisma studio"
   },
   "dependencies": {
     "@auth/prisma-adapter": "^1.4.0",
