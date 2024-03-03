@@ -1,12 +1,12 @@
 {
   "name": "affordibit-app",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
   "license": "MIT",
   "scripts": {
-    "dev": "./scripts/start_dev.sh",
+    "dev": "next dev -p 5555",
     "build": "next build",
-    "start": "./scripts/start.sh",
+    "start": "next start -p 5555",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
     "format:check": "prettier --check . --ignore-path .gitignore",
