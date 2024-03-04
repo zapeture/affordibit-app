@@ -86,6 +86,14 @@
     --ring: var(--primary-600);
 
     --radius: 0.8rem;
+
+    /* Swiper.js */
+    --swiper-pagination-color: var(--white);
+    --swiper-pagination-bullet-inactive-color: var(--gray-300);
+    --swiper-pagination-bullet-size: 10px;
+    --swiper-pagination-bullet-width: 10px;
+    --swiper-pagination-bullet-height: 10px;
+    --swiper-pagination-bottom: 0px;
   }
 
   .dark {

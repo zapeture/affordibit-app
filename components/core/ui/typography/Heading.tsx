@@ -3,9 +3,10 @@ import React from "react"
 type HeadingProps = {
   level: 1 | 2 | 3 | 4 | 5 | 6
   children: React.ReactNode
+  className?: string
 }
 
-const Heading: React.FC<HeadingProps> = ({ level, children }) => {
+const Heading: React.FC<HeadingProps> = ({ level, children, className }) => {
   const Tag = `h${level}` as keyof JSX.IntrinsicElements
 
   const baseClass = "font-bold"
@@ -34,9 +35,9 @@ const Heading: React.FC<HeadingProps> = ({ level, children }) => {
       sizeClass = "text-xl"
   }
 
-  const className = `${baseClass} ${sizeClass}`
+  const classNames = `${baseClass} ${sizeClass} ${className}`
 
-  return <Tag className={className}>{children}</Tag>
+  return <Tag className={classNames}>{children}</Tag>
 }
 
 export default Heading
