@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react"
-import Heading from "@/components/ui/typography/Heading"
+import Heading from "@/components/core/ui/typography/Heading"
 
 describe("Heading", () => {
   it("renders the correct heading level", () => {

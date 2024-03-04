@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react"
 
-import Table from "@/components/ui/table/Table"
+import Table from "@/components/core/ui/table/Table"
 
 const meta: Meta = {
   title: "Components/Ui/Tables",

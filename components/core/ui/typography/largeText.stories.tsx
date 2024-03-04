@@ -1,4 +1,4 @@
-import { LargeText as LT } from "@/components/ui/typography"
+import { LargeText as LT } from "@/components/core/ui/typography"
 import { Meta, StoryObj } from "@storybook/react"
 
 const meta: Meta = {

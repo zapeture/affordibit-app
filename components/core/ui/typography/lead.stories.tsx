@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react"
-import { Lead as LD } from "@/components/ui/typography"
+import { Lead as LD } from "@/components/core/ui/typography"
 
 const meta: Meta = {
   title: "Components/Ui/Typography",

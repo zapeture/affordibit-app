@@ -1,4 +1,4 @@
-import { List as L } from "@/components/ui/typography"
+import { List as L } from "@/components/core/ui/typography"
 import { Meta, StoryObj } from "@storybook/react"
 
 const meta: Meta = {

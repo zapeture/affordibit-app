@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react"
-import { Paragraph as P } from "@/components/ui/typography"
+import { Paragraph as P } from "@/components/core/ui/typography"
 
 const meta: Meta = {
   title: "Components/Ui/Typography",

@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react"
 
-import { Blockquote as BQ } from "@/components/ui/typography"
+import { Blockquote as BQ } from "@/components/core/ui/typography"
 
 const meta: Meta = {
   title: "Components/Ui/Typography",

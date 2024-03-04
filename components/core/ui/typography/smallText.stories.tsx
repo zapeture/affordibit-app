@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react"
 
-import { SmallText as ST } from "@/components/ui/typography"
+import { SmallText as ST } from "@/components/core/ui/typography"
 
 const meta: Meta = {
   title: "Components/Ui/Typography",

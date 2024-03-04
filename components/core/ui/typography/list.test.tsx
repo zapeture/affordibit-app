@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react"
-import List from "@/components/ui/typography/List"
+import List from "@/components/core/ui/typography/List"
 
 describe("List", () => {
   it("renders a list with the correct items", () => {

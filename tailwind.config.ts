@@ -12,6 +12,20 @@ const config = {
         "2xl": "1400px"
       }
     },
+    screens: {
+      "small-mobile-down": { max: "375px" },
+      "mobile-down": { max: "576px" },
+      "tablet-down": { max: "768px" },
+      "laptop-down": { max: "1024px" },
+      "desktop-down": { max: "1440px" },
+      "4k-down": { max: "2560px" },
+      "small-mobile-up": { min: "376px" },
+      "mobile-up": { min: "577px" },
+      "tablet-up": { min: "769px" },
+      "laptop-up": { min: "1025px" },
+      "desktop-up": { min: "1441px" },
+      "4k-up": { min: "2561px" }
+    },
     extend: {
       colors: {
         border: "var(--border)",
