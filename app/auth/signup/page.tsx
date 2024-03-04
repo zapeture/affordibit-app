@@ -1,3 +1,5 @@
+import SignUpForm from "@/components/custom/form/SignUpForm"
+
 export default function SignupPage() {
-  return <div>Signup Page</div>
+  return <SignUpForm />
 }

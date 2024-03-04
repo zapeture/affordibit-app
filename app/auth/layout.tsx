@@ -12,7 +12,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <AffodibitLogo />
         </header>
         <div className="w-full max-w-[1186px] mx-auto flex justify-between items-center">
-          <div className="min-h-[80vh] flex-1 hidden tablet-up:block">
+          <div className="flex-1 hidden tablet-up:block">
             <AuthCarousel
               slides={[
                 {
@@ -32,9 +32,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               ]}
             />
           </div>
-          <div className="min-h-[80vh] flex-1 border border-black">
-            {children}
-          </div>
+          <div className="flex-1">{children}</div>
         </div>
       </div>
     </section>

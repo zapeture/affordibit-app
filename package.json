@@ -27,7 +27,9 @@
   },
   "dependencies": {
     "@auth/prisma-adapter": "^1.4.0",
+    "@hookform/resolvers": "^3.3.4",
     "@prisma/client": "^5.10.2",
+    "@radix-ui/react-label": "^2.0.2",
     "@radix-ui/react-slot": "^1.0.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
@@ -38,9 +40,11 @@
     "nodemailer": "^6.9.9",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.51.0",
     "swiper": "11.0.7",
     "tailwind-merge": "^2.2.1",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "zod": "^3.22.4"
   },
   "devDependencies": {
     "@playwright/test": "^1.41.1",

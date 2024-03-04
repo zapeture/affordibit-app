@@ -1,4 +1,5 @@
 import type { StorybookConfig } from "@storybook/nextjs"
+import * as path from "path"
 
 const config: StorybookConfig = {
   stories: [
@@ -24,6 +25,7 @@ const config: StorybookConfig = {
   },
   core: {
     disableTelemetry: true
-  }
+  },
+  staticDirs: ["../public"]
 }
 export default config
