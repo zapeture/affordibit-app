@@ -9,6 +9,14 @@ const preview: Preview = {
         color: /(background|color)$/i,
         date: /Date$/i
       }
+    },
+    backgrounds: {
+      values: [
+        {
+          name: "auth-blue",
+          value: "#2563eb"
+        }
+      ]
     }
   }
 }

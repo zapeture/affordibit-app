@@ -14,7 +14,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={inter.className}>
-      <body className="w-full">{children}</body>
+      <body className="w-full large-mobile-up:overflow-y-hidden">
+        {children}
+      </body>
     </html>
   )
 }

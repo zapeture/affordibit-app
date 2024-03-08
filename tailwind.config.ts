@@ -7,28 +7,31 @@ const config = {
   theme: {
     container: {
       center: true,
-      padding: "2rem",
+      padding: "1rem",
       screens: {
-        sm: "640px",
+        "x-sm": "360px",
+        sm: "480px",
         md: "768px",
         lg: "1024px",
-        xl: "1280px",
-        "2xl": "1440px"
+        xl: "1366px",
+        "2xl": "1920px"
       }
     },
     screens: {
-      "small-mobile-down": { max: "375px" },
-      "mobile-down": { max: "576px" },
-      "tablet-down": { max: "768px" },
-      "laptop-down": { max: "1024px" },
-      "desktop-down": { max: "1440px" },
-      "4k-down": { max: "2560px" },
-      "small-mobile-up": { min: "376px" },
-      "mobile-up": { min: "577px" },
-      "tablet-up": { min: "769px" },
-      "laptop-up": { min: "1025px" },
-      "desktop-up": { min: "1441px" },
-      "4k-up": { min: "2561px" }
+      "small-mobile-down": { max: "359px" },
+      "large-mobile-down": { max: "479px" },
+      "mobile-down": { max: "767px" },
+      "tablet-down": { max: "1023px" },
+      "laptop-down": { max: "1365px" },
+      "desktop-down": { max: "1919px" },
+      "4k-down": { max: "2559px" },
+      "small-mobile-up": { min: "360px" },
+      "large-mobile-up": { min: "480px" },
+      "mobile-up": { min: "768px" },
+      "tablet-up": { min: "1024px" },
+      "laptop-up": { min: "1366px" },
+      "desktop-up": { min: "1920px" },
+      "4k-up": { min: "2560px" }
     },
     extend: {
       colors: {
