@@ -1,8 +1,11 @@
+"use client"
 import { Swiper, SwiperSlide } from "swiper/react"
-
-import "swiper/css"
 import Image from "next/image"
 import { Heading, Paragraph } from "@/components/core/ui/typography"
+
+import "swiper/css"
+import "swiper/css/pagination"
+import { Pagination } from "swiper/modules"
 
 interface AuthCarouselProps {
   slides: Array<{
@@ -17,7 +20,9 @@ export default function AuthCarousel({ slides }: AuthCarouselProps) {
     <Swiper
       spaceBetween={50}
       slidesPerView={1}
-      className="w-full max-w-[524px] border border-white"
+      pagination={true}
+      modules={[Pagination]}
+      className="w-full max-w-[524px]"
     >
       {slides?.length > 0 &&
         slides.map((slide, index) => (
@@ -29,10 +34,14 @@ export default function AuthCarousel({ slides }: AuthCarouselProps) {
                 width={524}
                 height={524}
               />
-              <Heading level={3} className="text-white">
-                {slide.heading}
-              </Heading>
-              <Paragraph className="text-white">{slide.subHeading}</Paragraph>
+              <section className="w-full mb-[40px]">
+                <Heading level={4} className="text-white text-center font-bold">
+                  {slide.heading}
+                </Heading>
+                <Paragraph className="text-white text-center text-sm font-normal mt-[12px]">
+                  {slide.subHeading}
+                </Paragraph>
+              </section>
             </div>
           </SwiperSlide>
         ))}

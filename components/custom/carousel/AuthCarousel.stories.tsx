@@ -2,7 +2,7 @@ import AuthCarousel from "@/components/custom/carousel/AuthCarousel"
 import { Meta, StoryObj } from "@storybook/react"
 
 const meta: Meta<typeof AuthCarousel> = {
-  title: "Components/Ui/Carousel",
+  title: "Components/Ui/Carousel/AuthCarousel",
   component: AuthCarousel
 }
 
@@ -19,19 +19,22 @@ export const Default: Story = {
   args: {
     slides: [
       {
-        heading: "Heading 1",
-        subHeading: "Subheading 1",
-        image: "https://via.placeholder.com/300"
+        heading: "Customizable Multipurpose Dashboard",
+        subHeading: "Everything you need in an easily customizable dashboard.",
+        image:
+          "https://res.cloudinary.com/zapeture/image/upload/v1709504118/affordibit/development/illustration_ndlg5h.png"
       },
       {
-        heading: "Heading 2",
-        subHeading: "Subheading 2",
-        image: "https://via.placeholder.com/300"
+        heading: "Customizable Multipurpose Dashboard",
+        subHeading: "Everything you need in an easily customizable dashboard.",
+        image:
+          "https://res.cloudinary.com/zapeture/image/upload/v1709504118/affordibit/development/illustration_ndlg5h.png"
       },
       {
-        heading: "Heading 3",
-        subHeading: "Subheading 3",
-        image: "https://via.placeholder.com/300"
+        heading: "Customizable Multipurpose Dashboard",
+        subHeading: "Everything you need in an easily customizable dashboard.",
+        image:
+          "https://res.cloudinary.com/zapeture/image/upload/v1709504118/affordibit/development/illustration_ndlg5h.png"
       }
     ]
   }
