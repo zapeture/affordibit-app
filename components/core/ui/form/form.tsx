@@ -12,6 +12,7 @@ import {
 
 import { cn } from "@/lib/utils"
 import { Label } from "@/components/core/ui/label/label"
+import { AlertCircle } from "lucide-react"
 
 const Form = FormProvider
 
@@ -155,10 +156,14 @@ const FormMessage = React.forwardRef<
     <p
       ref={ref}
       id={formMessageId}
-      className={cn("text-sm font-medium text-destructive", className)}
+      className={cn(
+        "text-sm font-medium text-destructive flex justify-start items-center gap-1",
+        className
+      )}
       {...props}
     >
-      {body}
+      <AlertCircle size={16} className="inline-block mr-1" />
+      <span>{body}</span>
     </p>
   )
 })

@@ -40,8 +40,8 @@ model Session {
 
 model User {
   id            String     @id @default(cuid())
-  firstName     String?
-  lastName      String?
+  firstName     String
+  lastName      String
   username      String?    @unique
   email         String?     @unique
   emailVerified DateTime?
@@ -50,6 +50,7 @@ model User {
   sessions      Session[]
   roles         Role[]     @relation("UserRoles")
   UserRole      UserRole[]
+  consent       Boolean    @default(false)
 }
 
 model VerificationToken {

@@ -18,7 +18,12 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
       <div className="w-full relative">
         {StartIcon && (
           <div className="absolute left-2.5 top-1/2 transform -translate-y-1/2">
-            <StartIcon size={25} className="text-text-gray-700-foreground" />
+            <StartIcon
+              size={25}
+              className="text-text-gray-700-foreground"
+              strokeWidth={1.5}
+              stroke="#64748B"
+            />
           </div>
         )}
         <input
@@ -34,7 +39,12 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         />
         {EndIcon && (
           <div className="absolute right-3 top-1/2 transform -translate-y-1/2">
-            <EndIcon className="text-gray-700-foreground" size={25} />
+            <EndIcon
+              className="text-gray-700-foreground"
+              size={25}
+              strokeWidth={1.5}
+              stroke="#64748B"
+            />
           </div>
         )}
       </div>
