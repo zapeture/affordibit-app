@@ -1,5 +1,4 @@
 import type { StorybookConfig } from "@storybook/nextjs"
-import * as path from "path"
 
 const config: StorybookConfig = {
   stories: [
@@ -15,9 +14,7 @@ const config: StorybookConfig = {
   framework: {
     name: "@storybook/nextjs",
     options: {
-      builder: {
-        useSWC: true
-      }
+      builder: {}
     }
   },
   docs: {

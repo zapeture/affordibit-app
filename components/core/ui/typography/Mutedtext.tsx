@@ -4,12 +4,10 @@ interface MutedTextProps extends HTMLAttributes<HTMLParagraphElement> {
   children: ReactNode
 }
 
-const MutedText: React.FC<MutedTextProps> = ({ children, ...props }) => {
+export default function MutedText({ children, ...props }: MutedTextProps) {
   return (
     <p className="text-sm text-muted-foreground" {...props}>
       {children}
     </p>
   )
 }
-
-export default MutedText
