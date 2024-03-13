@@ -20,7 +20,7 @@ export default function AuthCarousel({ slides }: AuthCarouselProps) {
     <Swiper
       spaceBetween={50}
       slidesPerView={1}
-      pagination={true}
+      pagination={{ clickable: true, enabled: true }}
       modules={[Pagination]}
       className="w-full max-w-[524px]"
     >

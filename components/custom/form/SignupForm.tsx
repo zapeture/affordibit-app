@@ -18,9 +18,8 @@ import { Checkbox } from "@/components/core/ui/input/checkbox"
 import { Mail, User } from "lucide-react"
 import { CheckedState } from "@radix-ui/react-checkbox"
 import TextHorizontalRule from "@/components/custom/rules/TextHorizontalRule"
-import Google from "@/components/icons/Google"
-import Github from "@/components/icons/Github"
 import Link from "next/link"
+import AuthAltProviders from "@/components/auth/AuthAltProviders"
 
 interface SignupFormProps {
   heading?: string
@@ -78,7 +77,7 @@ export default function SignupForm({
                   <FormControl>
                     <Input
                       startIcon={User}
-                      placeholder="Firstname"
+                      placeholder="Name"
                       {...field}
                       type="text"
                       className="min-h-[48px] large-mobile-up:min-h-[56px] font-normal text-sm placeholder:text-[#94A3B8] border border-gray-400 rounded-[12px]"
@@ -97,7 +96,7 @@ export default function SignupForm({
                   <FormControl>
                     <Input
                       startIcon={User}
-                      placeholder="Lastname"
+                      placeholder="Surname"
                       {...field}
                       type="text"
                       className="min-h-[48px] large-mobile-up:min-h-[56px] font-normal text-sm placeholder:text-[#94A3B8] border border-gray-400 rounded-[12px]"
@@ -181,22 +180,10 @@ export default function SignupForm({
               Signup
             </Button>
             {/*  */}
-            <TextHorizontalRule text="Or sign up with" />
+            <TextHorizontalRule text="Or sign in with" />
             {/*  */}
-            <section className="alt-auth-providers flex justify-between items-center gap-4">
-              <Button variant={"outline"} size={"lg"} className="w-full">
-                <span className="scale-50">
-                  <Google />
-                </span>
-                Google
-              </Button>
-              <Button variant={"outline"} size={"lg"} className="w-full">
-                <span className="scale-50">
-                  <Github />
-                </span>
-                Github
-              </Button>
-            </section>
+            <AuthAltProviders />
+            {/*  */}
             <Paragraph className="text-[#0F172A] text-sm text-center">
               Already have an account?{" "}
               <Link

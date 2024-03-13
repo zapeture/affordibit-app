@@ -15,27 +15,30 @@ import {
 import { Input } from "@/components/core/ui/input/input"
 import { Mail } from "lucide-react"
 import TextHorizontalRule from "@/components/custom/rules/TextHorizontalRule"
-import Google from "@/components/icons/Google"
-import Github from "@/components/icons/Github"
 import Link from "next/link"
+import AuthAltProviders from "@/components/auth/AuthAltProviders"
 
 interface SignupFormProps {
   heading?: string
+  welcomeMessage?: string
 }
 
 const formSchema = z.object({
   email: z.string().email({
     message: "Please enter a valid email."
-  })
+  }),
+  rememberMe: z.boolean().optional()
 })
 
 export default function SigninForm({
-  heading = "Sign In to your Account"
+  heading = "Sign In to your Account",
+  welcomeMessage = "Welcome back! Please sign in to your account."
 }: SignupFormProps) {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      email: ""
+      email: "",
+      rememberMe: false
     }
   })
 
@@ -49,7 +52,7 @@ export default function SigninForm({
         {heading}
       </Heading>
       <Paragraph className="text-[#0F172A] mb-[32px]">
-        Welcome back! please enter your detail
+        {welcomeMessage}
       </Paragraph>
       <div className="w-100">
         <Form {...form}>
@@ -82,20 +85,8 @@ export default function SigninForm({
             {/*  */}
             <TextHorizontalRule text="Or sign in with" />
             {/*  */}
-            <section className="alt-auth-providers flex justify-between items-center gap-4">
-              <Button variant={"outline"} size={"lg"} className="w-full">
-                <span className="scale-50">
-                  <Google />
-                </span>
-                Google
-              </Button>
-              <Button variant={"outline"} size={"lg"} className="w-full">
-                <span className="scale-50">
-                  <Github />
-                </span>
-                Github
-              </Button>
-            </section>
+            <AuthAltProviders />
+            {/*  */}
             <Paragraph className="text-[#0F172A] text-sm text-center">
               Don`t Already have an account?{" "}
               <Link
