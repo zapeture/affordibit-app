@@ -9,6 +9,30 @@ const nextConfig = {
         pathname: "**"
       }
     ]
+  },
+  async redirects() {
+    return [
+      {
+        source: "/login",
+        destination: "/auth/signin",
+        permanent: true
+      },
+      {
+        source: "/register",
+        destination: "/auth/signup",
+        permanent: true
+      },
+      {
+        source: "/logout",
+        destination: "/auth/signout",
+        permanent: true
+      },
+      {
+        source: "/auth",
+        destination: "/auth/signin",
+        permanent: true
+      }
+    ]
   }
 }
 

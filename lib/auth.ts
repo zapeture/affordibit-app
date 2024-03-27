@@ -33,7 +33,7 @@ export const authOptions = {
     signIn: "/auth/signin",
     signOut: "/auth/signout",
     error: "/auth/error",
-    verifyRequest: "/auth/verify-request",
-    newUser: "/auth/signup"
+    verifyRequest: "/auth/verify",
+    newUser: "/auth/new-user"
   }
 } satisfies NextAuthOptions

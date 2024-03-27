@@ -3,6 +3,7 @@ import { Heading, Paragraph } from "@/components/core/ui/typography"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
+import { signIn } from "next-auth/react"
 
 import { Button } from "@/components/core/ui/button"
 import {
@@ -16,6 +17,7 @@ import {
 import { Input } from "@/components/core/ui/input/input"
 import { Checkbox } from "@/components/core/ui/input/checkbox"
 import { Mail, User } from "lucide-react"
+import { useRouter } from "next/navigation"
 import { CheckedState } from "@radix-ui/react-checkbox"
 import TextHorizontalRule from "@/components/custom/rules/TextHorizontalRule"
 import Link from "next/link"
@@ -26,15 +28,15 @@ interface SignupFormProps {
 }
 
 const formSchema = z.object({
-  firstName: z.string().min(2, {
-    message: "First name must be at least 2 characters."
-  }),
-  lastName: z.string().min(2, {
-    message: "Last name must be at least 2 characters."
-  }),
-  username: z.string().min(2, {
-    message: "Username must be at least 2 characters."
-  }),
+  // firstName: z.string().min(2, {
+  //   message: "First name must be at least 2 characters."
+  // }),
+  // lastName: z.string().min(2, {
+  //   message: "Last name must be at least 2 characters."
+  // }),
+  // username: z.string().min(2, {
+  //   message: "Username must be at least 2 characters."
+  // }),
   email: z.string().email({
     message: "Please enter a valid email."
   }),
@@ -46,19 +48,31 @@ const formSchema = z.object({
 export default function SignupForm({
   heading = "Sign Up for an Account"
 }: SignupFormProps) {
+  const router = useRouter()
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      firstName: "",
-      lastName: "",
-      username: "",
+      // firstName: "",
+      // lastName: "",
+      // username: "",
       email: "",
       consent: false
     }
   })
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  async function SignInWithEmail(values: z.infer<typeof formSchema>) {
     console.log(values)
+
+    const signInResult = await signIn("email", {
+      email: values.email,
+      callbackUrl: `${window.location.origin}`,
+      redirect: false
+    })
+
+    if (!signInResult?.ok) {
+      console.error("Sign in failed:", signInResult?.error)
+      return
+    }
   }
 
   return (
@@ -68,8 +82,11 @@ export default function SignupForm({
       </Heading>
       <div className="w-100">
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-            <FormField
+          <form
+            onSubmit={form.handleSubmit(SignInWithEmail)}
+            className="space-y-8"
+          >
+            {/* <FormField
               control={form.control}
               name="firstName"
               render={({ field }) => (
@@ -86,9 +103,9 @@ export default function SignupForm({
                   <FormMessage />
                 </FormItem>
               )}
-            />
+            /> */}
             {/*  */}
-            <FormField
+            {/* <FormField
               control={form.control}
               name="lastName"
               render={({ field }) => (
@@ -105,9 +122,9 @@ export default function SignupForm({
                   <FormMessage />
                 </FormItem>
               )}
-            />
+            /> */}
             {/*  */}
-            <FormField
+            {/* <FormField
               control={form.control}
               name="username"
               render={({ field }) => (
@@ -124,7 +141,7 @@ export default function SignupForm({
                   <FormMessage />
                 </FormItem>
               )}
-            />
+            /> */}
             {/*  */}
             <FormField
               control={form.control}

@@ -12,7 +12,7 @@ export default async function Layout({
   const session = await getServerSession(authOptions)
 
   if (session) {
-    return redirect("/blog")
+    redirect("/blog")
   }
 
   const slides = [
@@ -38,7 +38,7 @@ export default async function Layout({
   return (
     <section
       id="auth-layout"
-      className="w-full min-h-[900px] bg-white large-mobile-up:bg-auth-bg"
+      className="w-full min-h-[105vh] bg-white large-mobile-up:bg-auth-bg"
     >
       <div className="container max-w-[1180px]">
         <AuthHeader />

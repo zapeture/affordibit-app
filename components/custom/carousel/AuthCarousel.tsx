@@ -32,6 +32,7 @@ export default function AuthCarousel({ slides }: AuthCarouselProps) {
                 src={slide.image}
                 alt={`slide-${index}`}
                 width={524}
+                priority
                 height={524}
               />
               <section className="w-full mb-[40px]">
