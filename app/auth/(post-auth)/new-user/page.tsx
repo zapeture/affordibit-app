@@ -1,3 +1,5 @@
+import UserDetailsForm from "@/components/custom/form/UserDetailsForm"
+
 export default function Page() {
-  return <div>User info</div>
+  return <UserDetailsForm />
 }

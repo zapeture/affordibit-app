@@ -1,9 +1,16 @@
+import { Heading } from "@/components/core/ui/typography"
 import { authOptions } from "@/lib/auth"
 import { redirect } from "next/navigation"
 import { getServerSession } from "next-auth"
+import LogoutButton from "@/components/auth/LogoutButton"
 
 export default async function Page() {
   const session = await getServerSession(authOptions)
   if (!session) return redirect("/auth/signin")
-  return <h1>Protected Main Page</h1>
+  return (
+    <div>
+      <Heading level={1}>Protected Main Page</Heading>
+      <LogoutButton />
+    </div>
+  )
 }

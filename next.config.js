@@ -31,6 +31,19 @@ const nextConfig = {
         source: "/auth",
         destination: "/auth/signin",
         permanent: true
+      },
+      {
+        source: "/auth/new-user",
+        destination: "/welcome",
+        permanent: true
+      }
+    ]
+  },
+  async rewrites() {
+    return [
+      {
+        source: "/welcome",
+        destination: "/auth/new-user"
       }
     ]
   }

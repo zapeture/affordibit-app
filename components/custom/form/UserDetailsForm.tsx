@@ -3,7 +3,6 @@ import { Heading, Paragraph } from "@/components/core/ui/typography"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
-import { signIn } from "next-auth/react"
 
 import { Button } from "@/components/core/ui/button"
 import {
@@ -15,76 +14,117 @@ import {
   FormMessage
 } from "@/components/core/ui/form/form"
 import { Input } from "@/components/core/ui/input/input"
-import { Checkbox } from "@/components/core/ui/input/checkbox"
-import { Mail } from "lucide-react"
+import { User } from "lucide-react"
 import { useRouter } from "next/navigation"
+import { Checkbox } from "@/components/core/ui/input/checkbox"
 import { CheckedState } from "@radix-ui/react-checkbox"
-import TextHorizontalRule from "@/components/custom/rules/TextHorizontalRule"
-import Link from "next/link"
-import AuthAltProviders from "@/components/auth/AuthAltProviders"
+import { saveNewUserDetails } from "@/app/actions"
 
 interface SignupFormProps {
   heading?: string
+  subHeading?: string
 }
 
 const formSchema = z.object({
-  email: z.string().email({
-    message: "Please enter a valid email."
+  firstName: z.string().min(2, {
+    message: "First name must be at least 2 characters."
+  }),
+  lastName: z.string().min(2, {
+    message: "Last name must be at least 2 characters."
+  }),
+  username: z.string().min(2, {
+    message: "Username must be at least 2 characters."
   }),
   consent: z.boolean().refine((value) => value === true, {
     message: "Please accept the terms and conditions."
   })
 })
 
-export default function SignupForm({
-  heading = "Sign Up for an Account"
+export default function UserDetailsForm({
+  heading = "Welcome to Affordibit!",
+  subHeading = "Please provide your details to get started."
 }: SignupFormProps) {
   const router = useRouter()
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      email: "",
+      firstName: "",
+      lastName: "",
+      username: "",
       consent: false
     }
   })
 
-  async function SignInWithEmail(values: z.infer<typeof formSchema>) {
-    const signUpResult = await signIn("email", {
-      email: values.email,
-      callbackUrl: `${window.location.origin}`,
-      redirect: false
-    })
-
-    if (!signUpResult?.ok) {
-      console.error("Sign in failed:", signUpResult?.error)
-      return
-    } else {
-      router.push("/auth/verify")
-    }
+  async function saveUserDetails(values: z.infer<typeof formSchema>) {
+    saveNewUserDetails(values)
   }
 
   return (
-    <section id="signup_form" className="w-full max-w-[372px] mx-auto">
+    <section
+      id="user_details_form"
+      className="w-full max-w-[450px] mx-auto rounded-lg bg-white p-10"
+    >
       <Heading level={4} className="mb-[32px] text-gray-900">
         {heading}
       </Heading>
+      <Paragraph className="text-[#0F172A] text-sm mb-5">
+        {subHeading}
+      </Paragraph>
       <div className="w-100">
         <Form {...form}>
           <form
-            onSubmit={form.handleSubmit(SignInWithEmail)}
+            onSubmit={form.handleSubmit(saveUserDetails)}
             className="space-y-8"
           >
             <FormField
               control={form.control}
-              name="email"
+              name="firstName"
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
                     <Input
-                      startIcon={Mail}
-                      placeholder="Email"
+                      startIcon={User}
+                      placeholder="Name"
                       {...field}
-                      type="email"
+                      type="text"
+                      className="min-h-[48px] large-mobile-up:min-h-[56px] font-normal text-sm placeholder:text-[#94A3B8] border border-gray-400 rounded-[12px]"
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            {/*  */}
+            <FormField
+              control={form.control}
+              name="lastName"
+              render={({ field }) => (
+                <FormItem>
+                  <FormControl>
+                    <Input
+                      startIcon={User}
+                      placeholder="Surname"
+                      {...field}
+                      type="text"
+                      className="min-h-[48px] large-mobile-up:min-h-[56px] font-normal text-sm placeholder:text-[#94A3B8] border border-gray-400 rounded-[12px]"
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            {/*  */}
+            <FormField
+              control={form.control}
+              name="username"
+              render={({ field }) => (
+                <FormItem>
+                  <FormControl>
+                    <Input
+                      startIcon={User}
+                      placeholder="Username"
+                      {...field}
+                      type="text"
                       className="min-h-[48px] large-mobile-up:min-h-[56px] font-normal text-sm placeholder:text-[#94A3B8] border border-gray-400 rounded-[12px]"
                     />
                   </FormControl>
@@ -125,22 +165,8 @@ export default function SignupForm({
               type="submit"
               className="flex items-center w-full rounded-lg font-bold text-base h-12"
             >
-              Signup
+              Submit
             </Button>
-            {/*  */}
-            <TextHorizontalRule text="Or sign in with" />
-            {/*  */}
-            <AuthAltProviders />
-            {/*  */}
-            <Paragraph className="text-[#0F172A] text-sm text-center">
-              Already have an account?{" "}
-              <Link
-                href="/auth/signin"
-                className="font-bold text-primary text-sm"
-              >
-                Log In
-              </Link>
-            </Paragraph>
           </form>
         </Form>
       </div>

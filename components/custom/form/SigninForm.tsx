@@ -17,6 +17,8 @@ import { Mail } from "lucide-react"
 import TextHorizontalRule from "@/components/custom/rules/TextHorizontalRule"
 import Link from "next/link"
 import AuthAltProviders from "@/components/auth/AuthAltProviders"
+import { signIn } from "next-auth/react"
+import { useRouter } from "next/navigation"
 
 interface SignupFormProps {
   heading?: string
@@ -26,24 +28,34 @@ interface SignupFormProps {
 const formSchema = z.object({
   email: z.string().email({
     message: "Please enter a valid email."
-  }),
-  rememberMe: z.boolean().optional()
+  })
 })
 
 export default function SigninForm({
   heading = "Sign In to your Account",
   welcomeMessage = "Welcome back! Please sign in to your account."
 }: SignupFormProps) {
+  const router = useRouter()
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      email: "",
-      rememberMe: false
+      email: ""
     }
   })
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values)
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    const signInResult = await signIn("email", {
+      email: values.email,
+      callbackUrl: `${window.location.origin}`,
+      redirect: false
+    })
+
+    if (!signInResult?.ok) {
+      console.error("Sign in failed:", signInResult?.error)
+      return
+    } else {
+      router.push("/auth/verify")
+    }
   }
 
   return (
