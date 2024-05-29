@@ -5,7 +5,7 @@
     "dev:spotlight": "spotlight-sidecar",
     "dev:next": "next dev",
     "dev": "run-p dev:*",
-    "build": "npm run db:migrate && next build",
+    "build": "npm run db:migrate && npm run db:push && next build",
     "start": "next start",
     "build-stats": "cross-env ANALYZE=true npm run build",
     "clean": "rimraf .next .swc out coverage",
