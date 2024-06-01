@@ -1,19 +1,19 @@
 /* eslint-disable import/no-extraneous-dependencies, import/extensions */
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath } from "node:url";
 
-import withBundleAnalyzer from '@next/bundle-analyzer';
-import { withSentryConfig } from '@sentry/nextjs';
-import createJiti from 'jiti';
-import withNextIntl from 'next-intl/plugin';
+import withBundleAnalyzer from "@next/bundle-analyzer";
+import { withSentryConfig } from "@sentry/nextjs";
+import createJiti from "jiti";
+import withNextIntl from "next-intl/plugin";
 
 const jiti = createJiti(fileURLToPath(import.meta.url));
 
-jiti('./src/libs/Env');
+jiti("./src/libs/Env");
 
-const withNextIntlConfig = withNextIntl('./src/libs/i18n.ts');
+const withNextIntlConfig = withNextIntl("./src/libs/i18n.ts");
 
 const bundleAnalyzer = withBundleAnalyzer({
-  enabled: process.env.ANALYZE === 'true',
+  enabled: process.env.ANALYZE === "true",
 });
 
 /** @type {import('next').NextConfig} */
@@ -21,15 +21,15 @@ export default withSentryConfig(
   bundleAnalyzer(
     withNextIntlConfig({
       eslint: {
-        dirs: ['.'],
+        dirs: ["."],
       },
       poweredByHeader: false,
       reactStrictMode: true,
-      serverExternalPackages: ['pino'],
+      serverExternalPackages: ["pino"],
       experimental: {
         // Related to Pino error with RSC: https://github.com/orgs/vercel/discussions/3150
         reactCompiler: {
-          compilationMode: 'annotation',
+          compilationMode: "annotation",
         },
       },
     }),
@@ -41,8 +41,8 @@ export default withSentryConfig(
     // Suppresses source map uploading logs during build
     silent: true,
     // FIXME: Add your Sentry organization and project names
-    org: 'affordibit-app-org',
-    project: 'affordibit-app',
+    org: "affordibit-app-org",
+    project: "affordibit-app",
   },
   {
     // For all available options, see:
@@ -55,7 +55,7 @@ export default withSentryConfig(
     transpileClientSDK: true,
 
     // Routes browser requests to Sentry through a Next.js rewrite to circumvent ad-blockers (increases server load)
-    tunnelRoute: '/monitoring',
+    tunnelRoute: "/monitoring",
 
     // Hides source maps from generated client bundles
     hideSourceMaps: true,
