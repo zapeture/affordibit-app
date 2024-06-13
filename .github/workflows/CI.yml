@@ -22,9 +22,9 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-          cache: "npm"
-      - run: npm ci
-      - run: npm run build
+          cache: "pnpm"
+      - run: pnpm ci
+      - run: pnpm run build
 
   test:
     strategy:
@@ -42,8 +42,8 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-          cache: "npm"
-      - run: npm ci
+          cache: "pnpm"
+      - run: pnpm ci
 
       - name: Set SENTRY_AUTH_TOKEN env if secret exists
         run: |
@@ -52,20 +52,20 @@ jobs:
           fi
 
       - name: Build Next.js for E2E tests
-        run: npm run build
+        run:  run build
 
       - if: github.event_name == 'pull_request'
         name: Validate all commits from PR
-        run: npx commitlint --from ${{ github.event.pull_request.base.sha }} --to ${{ github.event.pull_request.head.sha }} --verbose
+        run: pnpm exec commitlint --from ${{ github.event.pull_request.base.sha }} --to ${{ github.event.pull_request.head.sha }} --verbose
 
       - name: Linter
-        run: npm run lint
+        run: pnpm run lint
 
       - name: Type checking
-        run: npm run check-types
+        run: pnpm run check-types
 
       - name: Run unit tests
-        run: npm run test
+        run: pnpm run test
 
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v3
@@ -73,13 +73,13 @@ jobs:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
       - name: Install Playwright (used for Storybook and E2E tests)
-        run: npx playwright install --with-deps
+        run: pnpm exec playwright install --with-deps
 
       - name: Run storybook tests
-        run: npm run test-storybook:ci
+        run: pnpm run test-storybook:ci
 
       - name: Run E2E tests
-        run: npx percy exec -- npm run test:e2e
+        run: pnpm exec percy exec -- npm run test:e2e
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
 

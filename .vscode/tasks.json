@@ -5,7 +5,7 @@
   "tasks": [
     {
       "label": "Project wide type checking with TypeScript",
-      "type": "npm",
+      "type": "pnpm",
       "script": "check-types",
       "problemMatcher": ["$tsc"],
       "group": {

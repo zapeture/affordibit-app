@@ -32,6 +32,9 @@ export default {
           xl: "5rem",
         },
       },
+      colors: {
+        "aff-blue": "#2563eb",
+      },
     },
   },
   plugins: [],
