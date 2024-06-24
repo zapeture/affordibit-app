@@ -2,6 +2,7 @@ import { enUS, frFR } from "@clerk/localizations";
 import { ClerkLoaded, ClerkLoading, ClerkProvider } from "@clerk/nextjs";
 
 import AuthLoader from "@/components/loaders/AuthLoader";
+import { AppConfig } from "@/utils/AppConfig";
 import { authAppearance } from "@/utils/ClerkAppearance";
 
 export default function AuthLayout(props: {
@@ -9,9 +10,9 @@ export default function AuthLayout(props: {
   params: { locale: string };
 }) {
   let clerkLocale = enUS;
-  let signInUrl = "/sign-in";
-  let signUpUrl = "/sign-up";
-  let dashboardUrl = "/dashboard";
+  let { signInUrl } = AppConfig.auth;
+  let { signUpUrl } = AppConfig.auth;
+  let { dashboardUrl } = AppConfig.auth;
 
   if (props.params.locale === "fr") {
     clerkLocale = frFR;

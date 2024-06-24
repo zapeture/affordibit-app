@@ -1,4 +1,4 @@
-import type { LocalePrefix } from "node_modules/next-intl/dist/types/src/routing/types";
+import type { LocalePrefix } from "node_modules/next-intl/dist/types/src/shared/types";
 
 const localePrefix: LocalePrefix = "as-needed";
 
@@ -8,4 +8,9 @@ export const AppConfig = {
   locales: ["en", "fr"],
   defaultLocale: "en",
   localePrefix,
+  auth: {
+    signInUrl: "/sign-in",
+    signUpUrl: "/sign-up",
+    dashboardUrl: "/dashboard",
+  },
 };

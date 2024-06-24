@@ -42,7 +42,9 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
-      "@/public/*": ["./public/*"]
+      "@/public/*": ["./public/*"],
+      "@/components/*": ["./src/components/*"],
+      "@/utils": ["./src/utils/utils.ts"],
     },
 
     // Editor support
@@ -59,6 +61,5 @@
     "**/*.tsx",
     ".storybook/*.ts",
     ".next/types/**/*.ts",
-    "**/*.mts"
-  ]
+    "**/*.mts"]
 }

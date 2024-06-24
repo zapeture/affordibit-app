@@ -1,5 +1,10 @@
-import { BaseTemplate } from "@/templates/BaseTemplate";
+import DashboardSidebar from "@/templates/dashboard/DashboardSidebar";
+import DashboardTemplate from "@/templates/dashboard/DashboardTemplate";
 
 export default function DashboardLayout(props: { children: React.ReactNode }) {
-  return <BaseTemplate>{props.children}</BaseTemplate>;
+  return (
+    <DashboardTemplate sidebar={<DashboardSidebar />}>
+      {props.children}
+    </DashboardTemplate>
+  );
 }

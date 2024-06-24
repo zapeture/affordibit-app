@@ -1,6 +1,7 @@
 import { SignIn } from "@clerk/nextjs";
 import { getTranslations } from "next-intl/server";
 
+import { AppConfig } from "@/utils/AppConfig";
 import { getI18nPath } from "@/utils/Helpers";
 
 export async function generateMetadata(props: { params: { locale: string } }) {
@@ -16,7 +17,10 @@ export async function generateMetadata(props: { params: { locale: string } }) {
 }
 
 const SignInPage = (props: { params: { locale: string } }) => (
-  <SignIn path={getI18nPath("/sign-in", props.params.locale)} />
+  <SignIn
+    path={getI18nPath(AppConfig.auth.signInUrl, props.params.locale)}
+    fallbackRedirectUrl={AppConfig.auth.dashboardUrl}
+  />
 );
 
 export default SignInPage;

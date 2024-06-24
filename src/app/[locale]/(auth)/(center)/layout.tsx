@@ -3,12 +3,13 @@ import { redirect } from "next/navigation";
 
 import AuthCoverCarousels from "@/components/carousels/AuthCoverCarousel";
 import AuthTemplate from "@/templates/AuthTemplate";
+import { AppConfig } from "@/utils/AppConfig";
 
 export default function AuthLayout(props: { children: React.ReactNode }) {
   const { userId } = auth();
 
   if (userId) {
-    redirect("/dashboard");
+    redirect(AppConfig.auth.dashboardUrl);
   }
 
   const sampleSlides = [

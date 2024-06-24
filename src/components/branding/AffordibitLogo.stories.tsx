@@ -9,7 +9,10 @@ const meta = {
   parameters: {
     layout: "centered",
     backgrounds: {
-      values: [{ name: "blue", value: "#2563EB", default: true }],
+      values: [
+        { name: "blue", value: "#2563EB", default: true },
+        { name: "light", value: "#FFFFFF" },
+      ],
     },
   },
 } satisfies Meta<typeof AffordibitLogo>;
@@ -17,9 +20,45 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const DefaultAffordibitLogo = {
+export const DefaultAffordibitLogo: Story = {
   args: {
     title: "Affordibit",
     linkUrl: "/",
+    variant: "light",
   },
-} satisfies Story;
+};
+
+export const BlueAffordibitLogo: Story = {
+  args: {
+    title: "Affordibit",
+    linkUrl: "/",
+    variant: "blue",
+    textColorLight: "#000000",
+    textColorBlue: "#FFFFFF",
+  },
+};
+
+export const CustomColorsAffordibitLogo: Story = {
+  args: {
+    title: "Affordibit",
+    linkUrl: "/",
+    variant: "blue",
+    textColorLight: "#333333",
+    textColorBlue: "#FFD700",
+    customFillColorLight: "#FFA500",
+    customFillColorBlue: "#00FF00",
+  },
+};
+
+export const ResponsiveAffordibitLogo: Story = {
+  args: {
+    title: "Affordibit",
+    linkUrl: "/",
+    variant: "light",
+    textColorLight: "#0F172A",
+    textColorBlue: "#FFFFFF",
+    customFillColorLight: "#2563EB",
+    customFillColorBlue: "#FFFFFF",
+    className: "responsive-logo",
+  },
+};
