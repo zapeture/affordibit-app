@@ -27,6 +27,7 @@ const config = {
         "aff-blue": "#2563eb",
         "aff-graysacale": "#94A3B8",
         "aff-deeper-gray": "#64748B",
+        "aff-lighter-gray": "#F8FAFC",
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
