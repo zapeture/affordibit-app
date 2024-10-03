@@ -1,0 +1,72 @@
+{
+  "name": "affordibit-app",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 3333",
+    "dev:turbo": "next dev -p 3333 --turbo",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "commit": "cz",
+    "lint:fix": "next lint --fix --no-cache",
+    "format": "prettier --check --ignore-path .prettierignore .",
+    "format:fix": "prettier --write --ignore-path .prettierignore .",
+    "check-types": "tsc --noEmit --pretty",
+    "prepare": "husky"
+  },
+  "dependencies": {
+    "next": "14.2.14",
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "19.5.0",
+    "@commitlint/config-conventional": "19.5.0",
+    "@commitlint/cz-commitlint": "19.5.0",
+    "@commitlint/types": "19.5.0",
+    "@types/node": "22.7.4",
+    "@types/react": "18.3.10",
+    "@types/react-dom": "18.3.0",
+    "commitizen": "4.3.1",
+    "eslint": "8.57.1",
+    "eslint-config-next": "14.2.14",
+    "eslint-config-prettier": "9.1.0",
+    "eslint-plugin-prettier": "5.2.1",
+    "husky": "9.1.6",
+    "lint-staged": "15.2.10",
+    "postcss": "8.4.47",
+    "prettier": "3.3.3",
+    "prettier-plugin-tailwindcss": "0.6.8",
+    "tailwindcss": "3.4.1",
+    "typescript": "5.5.4"
+  },
+  "config": {
+    "commitizen": {
+      "path": "@commitlint/cz-commitlint"
+    }
+  },
+  "release": {
+    "branches": [
+      "master"
+    ],
+    "plugins": [
+      [
+        "@semantic-release/commit-analyzer",
+        {
+          "preset": "conventionalcommits"
+        }
+      ],
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/changelog",
+      [
+        "@semantic-release/npm",
+        {
+          "npmPublish": false
+        }
+      ],
+      "@semantic-release/git",
+      "@semantic-release/github"
+    ]
+  }
+}
