@@ -16,6 +16,9 @@
 # production
 /build
 
+# test
+/test-results
+
 # misc
 .DS_Store
 *.pem
