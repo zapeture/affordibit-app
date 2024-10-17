@@ -1,0 +1,12 @@
+{
+  "typescript.updateImportsOnFileMove.enabled": "never",
+  "editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#121857",
+    "titleBar.activeBackground": "#0a2770",
+    "titleBar.activeForeground": "#ffffff"
+  }
+}

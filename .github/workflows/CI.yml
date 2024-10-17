@@ -1,0 +1,70 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        node-version: [22.6]
+    name: Build with ${{ matrix.node-version }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "pnpm"
+      - name: Install dependencies
+        run: pnpm install
+
+  test:
+    strategy:
+      matrix:
+        node-version: [22.6]
+
+    name: Run all tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build Next.js for E2E tests
+        run: pnpm build
+
+      - name: Linter
+        run: pnpm lint
+
+      - name: Type checking
+        run: pnpm  check-types
+
+      - name: Run unit tests
+        run: pnpm test -- --coverage
+
+      - name: Install Playwright (used for Storybook and E2E tests)
+        run: pnpm prepare:e2e
+
+      - name: Run E2E tests
+        run: pnpm run test:e2e
