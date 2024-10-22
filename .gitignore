@@ -16,6 +16,9 @@
 # production
 /build
 
+# test
+/test-results
+
 # misc
 .DS_Store
 *.pem
@@ -35,8 +38,10 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-#pnp
-.pnp.*
+# env
+.env*
+!.env.test
+!.env.example
 
-# yarn
-.yarn
+# database
+affdata*
